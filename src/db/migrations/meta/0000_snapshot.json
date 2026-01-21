@@ -1,0 +1,60 @@
+{
+  "version": "5",
+  "dialect": "postgresql",
+  "id": "0",
+  "prevId": "",
+  "tables": {
+    "recipes": {
+      "name": "recipes",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true
+        },
+        "title": {
+          "name": "title",
+          "type": "varchar",
+          "length": 255,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text"
+        },
+        "ingredients": {
+          "name": "ingredients",
+          "type": "text",
+          "notNull": true
+        },
+        "instructions": {
+          "name": "instructions",
+          "type": "text",
+          "notNull": true
+        },
+        "prep_time": {
+          "name": "prep_time",
+          "type": "integer"
+        },
+        "cook_time": {
+          "name": "cook_time",
+          "type": "integer"
+        },
+        "servings": {
+          "name": "servings",
+          "type": "integer"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "defaultValue": "CURRENT_TIMESTAMP"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "defaultValue": "CURRENT_TIMESTAMP"
+        }
+      }
+    }
+  }
+}
