@@ -1,15 +1,12 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import pkg from 'pg';
-import { dbConfig } from './env.js';
+import { drizzle } from "drizzle-orm/node-postgres";
+import pkg from "pg";
+import { ENV } from "./env.js";
+import * as schema from "../db/schema.js";
 
 const { Pool } = pkg;
 
 const pool = new Pool({
-  host: dbConfig.host,
-  port: dbConfig.port,
-  user: dbConfig.user,
-  password: dbConfig.password,
-  database: dbConfig.database,
+  connectionString: ENV.DATABASE_URL || "postgresql://postgres:postgres@localhost:5432/recipe_app",
 });
 
-export const db = drizzle(pool);
+export const db = drizzle(pool, { schema });
